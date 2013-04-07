@@ -37,7 +37,7 @@ class ClojureReindentCommand(sublime_plugin.TextCommand):
                 else:
                     current_line_indent = bracket_stack.peek().index + 1
 
-                for ch, column_index in enumerate(new_line_text):
+                for column_index, ch in enumerate(new_line_text):
                     if ch in ['{', '(', '[']:
                         bracket_stack.push(Bracket(ch, current_line_indent + column_index))
                     if ch in ['}', ')', ']']:
